@@ -58,7 +58,7 @@ require('dotenv').config
 
 
 // middlewares
-app.use(cors)
+app.use(cors())
 app.use(express.json())
 app.use(routes)
 
