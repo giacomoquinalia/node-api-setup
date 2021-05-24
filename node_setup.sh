@@ -21,7 +21,6 @@ src/services \
 src/utils
 
 touch \
-src/routes.js \
 src/database/config.js \
 src/services/api.js \
 .dockerignore \
@@ -48,7 +47,19 @@ const api = axios.create({
 module.exports = api
 EOF
 
-# Configuring web server file 
+# Routes file
+cat << EOF > src/routes.js
+const express = require('express')
+const routes = express.Router()
+
+
+routes.get('/', (req, res) => res.send('OK in get /'))
+
+
+module.exports = routes
+EOF
+
+# Configuring web server file
 cat << EOF > src/server.js
 const express = require('express')
 const cors = require('cors')
@@ -63,7 +74,7 @@ app.use(express.json())
 app.use(routes)
 
 
-const port = process.env.SERVER_PORT
+const port = process.env.SERVER_PORT || 3333
 app.listen(port, () => {
   console.log(\`CORS-enabled web server listening on port \${port}\`)
 })
