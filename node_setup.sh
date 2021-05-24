@@ -1,5 +1,13 @@
 #!/bin/bash
 
+
+if [ "x$1" = "x" ]; then
+    echo "Criando estrutura em $(pwd)"
+else
+    echo "Criando estrutura em $(pwd)/$1"
+    mkdir -p "$1" && cd "$1"
+fi
+
 git init
 npm init -y
 npm i express cors axios dotenv
