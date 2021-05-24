@@ -1,6 +1,6 @@
 #!/bin/bash
 
-
+git init
 npm init -y
 npm i express cors axios dotenv
 
