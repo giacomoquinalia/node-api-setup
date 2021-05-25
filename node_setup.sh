@@ -74,8 +74,6 @@ app.use(express.json())
 app.use(routes)
 
 
-const port = process.env.SERVER_PORT || 3333
-app.listen(port, () => {
-  console.log(\`CORS-enabled web server listening on port \${port}\`)
-})
+const PORT = process.env.SERVER_PORT || 3333
+app.listen(PORT, () => console.log(\`CORS-enabled web server listening on port \${PORT}\`))
 EOF
